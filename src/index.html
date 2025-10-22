@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>【NOMBRE DEL NEGOCIO】 · Catálogo y Contacto</title>
+  <meta name="description" content="【DESCRIPCIÓN BREVE】 Catálogo de productos, contacto y ubicación." />
+  <link rel="icon" href="/favicon.ico" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="【NOMBRE DEL NEGOCIO】" />
+  <meta property="og:description" content="【DESCRIPCIÓN BREVE】" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="【NOMBRE DEL NEGOCIO】" />
+  <meta name="twitter:description" content="【DESCRIPCIÓN BREVE】" />
+  <meta name="twitter:image" content="/og-image.jpg" />
+  <!-- JSON‑LD LocalBusiness (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "【NOMBRE DEL NEGOCIO】",
+    "image": ["/og-image.jpg"],
+    "description": "【DESCRIPCIÓN BREVE】",
+    "url": "https://【tu-dominio-o-subdominio.vercel.app】",
+    "telephone": "【+34 600 000 000】",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "【Calle, número】",
+      "addressLocality": "【Ciudad】",
+      "postalCode": "【CP】",
+      "addressCountry": "ES"
+    },
+    "openingHours": ["Mo-Fr 10:00-20:00", "Sa 10:00-14:00"],
+    "sameAs": [
+      "https://www.instagram.com/【usuario】",
+      "https://www.facebook.com/【usuario】"
+    ]
+  }
+  </script>
+  <style>
+    :root { --bg: #0b0c10; --fg: #e6edf3; --muted:#9aa4ad; --accent:#6ee7b7; --card:#111317; --border:#22252b; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--fg); background: linear-gradient(180deg,#0b0c10 0%,#0f1115 100%); }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width:1100px; margin:0 auto; padding: 24px; }
+    header { position: sticky; top:0; backdrop-filter: blur(8px); background: rgba(11,12,16,0.6); border-bottom:1px solid var(--border); z-index: 10; }
+    nav { display:flex; align-items:center; justify-content: space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px; }
+    .brand img { width:36px; height:36px; border-radius:10px; border:1px solid var(--border); }
+    .navlinks a { padding:10px 12px; border-radius:10px; }
+    .navlinks a:hover { background: var(--card); }
+
+    .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding: 48px 0 16px; }
+    .hero .title { font-size: clamp(28px, 5vw, 48px); line-height:1.1; font-weight:800; }
+    .hero p { color: var(--muted); font-size: 18px; }
+    .cta { display:flex; gap:12px; margin-top: 16px; }
+    .btn { padding:12px 16px; border-radius:12px; border:1px solid var(--border); background: var(--card); cursor:pointer; font-weight:600; }
+    .btn.primary { background:linear-gradient(90deg,#22c55e, #06b6d4); color:#0a0a0a; border:none; }
+
+    .badgebar { display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; }
+    .badge { font-size:12px; color:#0a0a0a; background:#c4fce1; padding:6px 10px; border-radius:999px; }
+
+    .section { padding: 56px 0; }
+    h2.section-title { font-size: clamp(22px, 3.2vw, 34px); margin: 0 0 12px; }
+    p.section-sub { color:var(--muted); margin: 0 0 24px; }
+
+    .grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; }
+    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+    .card img { width:100%; height:220px; object-fit: cover; display:block; }
+    .card .info { padding:14px; display:grid; gap:6px; }
+    .price { font-weight:700; }
+    .tags { display:flex; gap:6px; flex-wrap:wrap; }
+    .tag { font-size:12px; color:var(--muted); background:#151922; padding:4px 8px; border-radius:999px; border:1px solid var(--border); }
+
+    .about { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; }
+    .about .panel { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; }
+
+    .contact { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; }
+    form { display:grid; gap:10px; }
+    input, textarea { width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); background:#0f131a; color:var(--fg); }
+    textarea { min-height:120px; resize:vertical; }
+    .notice { font-size:12px; color:var(--muted); }
+
+    footer { border-top:1px solid var(--border); padding:24px 0; color:var(--muted); }
+
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+    @media (max-width: 920px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr 1fr; }
+      .about, .contact { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Principal">
+        <a class="brand" href="#inicio">
+          <img src="/logo.png" alt="Logo de 【NOMBRE DEL NEGOCIO】" />
+          <span>【NOMBRE DEL NEGOCIO】</span>
+        </a>
+        <div class="navlinks" role="navigation">
+          <a href="#catalogo">Catálogo</a>
+          <a href="#sobre">Sobre nosotros</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title" class="title">Productos hechos con cariño para tu día a día</h1>
+        <p>【Describe en una frase lo que vendéis: artesanía, repostería, moda, etc.】 Envíos a toda España y recogida local.</p>
+        <div class="cta">
+          <a class="btn primary" href="#catalogo">Ver catálogo</a>
+          <a class="btn" href="#contacto">Pedir por WhatsApp</a>
+        </div>
+        <div class="badgebar" aria-hidden="true">
+          <span class="badge">Pago seguro</span>
+          <span class="badge">Atención cercana</span>
+          <span class="badge">Hecho en 【Ciudad】</span>
+        </div>
+      </div>
+      <picture>
+        <source srcset="/hero.webp" type="image/webp" />
+        <img src="/hero.jpg" alt="Foto representativa de los productos" loading="lazy" width="800" height="600" style="border-radius:16px; border:1px solid var(--border);" />
+      </picture>
+    </section>
+
+    <section id="catalogo" class="section" aria-labelledby="catalogo-title">
+      <h2 id="catalogo-title" class="section-title">Catálogo</h2>
+      <p class="section-sub">Algunas de nuestras piezas favoritas. Puedes escribirnos para encargos personalizados.</p>
+      <div class="grid" id="grid-productos">
+        <!-- Repite estas tarjetas con tus fotos (colócalas en /public o junto al index.html) -->
+        <article class="card">
+          <img src="/productos/1.jpg" alt="【Nombre del producto 1】" loading="lazy" width="600" height="400" />
+          <div class="info">
+            <h3>【Nombre del producto 1】</h3>
+            <div class="price">【12,00 €】</div>
+            <div class="tags">
+              <span class="tag">【Etiqueta】</span>
+              <span class="tag">【Hecho a mano】</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="/productos/2.jpg" alt="【Nombre del producto 2】" loading="lazy" width="600" height="400" />
+          <div class="info">
+            <h3>【Nombre del producto 2】</h3>
+            <div class="price">【18,00 €】</div>
+            <div class="tags">
+              <span class="tag">【Etiqueta】</span>
+              <span class="tag">【Eco】</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="/productos/3.jpg" alt="【Nombre del producto 3】" loading="lazy" width="600" height="400" />
+          <div class="info">
+            <h3>【Nombre del producto 3】</h3>
+            <div class="price">【24,00 €】</div>
+            <div class="tags">
+              <span class="tag">【Etiqueta】</span>
+              <span class="tag">【Nuevo】</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre" class="section about" aria-labelledby="sobre-title">
+      <div class="panel">
+        <h2 id="sobre-title" class="section-title">Sobre nosotros</h2>
+        <p>【Cuenta la historia del negocio en 3-5 frases: quién es tu madre, desde cuándo, por qué empezó, qué os diferencia.】</p>
+        <ul>
+          <li>Envíos: 【24-72h】</li>
+          <li>Pagos: Bizum, transferencia, efectivo</li>
+          <li>Devoluciones: 【X días】</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h3>Opiniones</h3>
+        <p class="notice">Añade capturas breves de reseñas o testimonios de clientes.</p>
+      </div>
+    </section>
+
+    <section id="contacto" class="section contact" aria-labelledby="contacto-title">
+      <div>
+        <h2 id="contacto-title" class="section-title">Contacto</h2>
+        <p class="section-sub">Escríbenos por WhatsApp, email o el formulario y te atendemos enseguida.</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+          <a class="btn primary" href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn" href="mailto:【correo@ejemplo.com】">correo@ejemplo.com</a>
+          <a class="btn" href="tel:+34600000000">+34 600 000 000</a>
+        </div>
+        <form id="form-contacto" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="sr-only"><label>Si eres humano, deja este campo vacío<input name="bot-field" /></label></p>
+          <label>
+            <span class="sr-only">Nombre</span>
+            <input name="nombre" placeholder="Tu nombre" required />
+          </label>
+          <label>
+            <span class="sr-only">Email</span>
+            <input type="email" name="email" placeholder="Tu email" required />
+          </label>
+          <label>
+            <span class="sr-only">Mensaje</span>
+            <textarea name="mensaje" placeholder="¿Qué te gustaría pedir?" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Enviar</button>
+          <p class="notice">Al enviar aceptas nuestra política de privacidad.</p>
+        </form>
+      </div>
+      <div>
+        <div class="panel" style="height:100%;">
+          <h3>Ubicación</h3>
+          <p>【Calle, número – Ciudad】</p>
+          <iframe title="Mapa" style="width:100%; height:300px; border:0; border-radius:12px;" loading="lazy" allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=【PEGA_AQUI_EL_EMBED_DE_MAPS】"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
+      <span>© <span id="year"></span> 【NOMBRE DEL NEGOCIO】</span>
+      <span><a href="#">Aviso legal</a> · <a href="#">Privacidad</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mejora simple: si hay parámetros ?p= en la URL, filtra productos por etiqueta
+    const params = new URLSearchParams(location.search);
+    const filtro = params.get('p');
+    if (filtro) {
+      document.querySelectorAll('.card').forEach(c => {
+        const etiquetas = Array.from(c.querySelectorAll('.tag')).map(t => t.textContent.toLowerCase());
+        if (!etiquetas.some(e => e.includes(filtro.toLowerCase()))) c.style.display = 'none';
+      });
+    }
+  </script>
+</body>
+</html>
