@@ -3,107 +3,366 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>【NOMBRE DEL NEGOCIO】 · Catálogo y Contacto</title>
-  <meta name="description" content="【DESCRIPCIÓN BREVE】 Catálogo de productos, contacto y ubicación." />
+  <title>Florería Artesanal · Ramos y Arreglos Florales</title>
+  <meta name="description" content="Ramos florales artesanales hechos a mano. Envíos a toda España y recogida local." />
   <link rel="icon" href="/favicon.ico" />
+  
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="【NOMBRE DEL NEGOCIO】" />
-  <meta property="og:description" content="【DESCRIPCIÓN BREVE】" />
+  <meta property="og:title" content="Florería Artesanal" />
+  <meta property="og:description" content="Ramos florales artesanales hechos a mano" />
   <meta property="og:image" content="/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="【NOMBRE DEL NEGOCIO】" />
-  <meta name="twitter:description" content="【DESCRIPCIÓN BREVE】" />
-  <meta name="twitter:image" content="/og-image.jpg" />
-  <!-- JSON‑LD LocalBusiness (SEO) -->
+  
+  <!-- JSON-LD LocalBusiness (SEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "【NOMBRE DEL NEGOCIO】",
+    "@type": "Florist",
+    "name": "Florería Artesanal",
     "image": ["/og-image.jpg"],
-    "description": "【DESCRIPCIÓN BREVE】",
-    "url": "https://【tu-dominio-o-subdominio.vercel.app】",
-    "telephone": "【+34 600 000 000】",
+    "description": "Ramos florales artesanales hechos a mano",
+    "url": "https://tu-dominio.vercel.app",
+    "telephone": "+34 600 000 000",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "【Calle, número】",
-      "addressLocality": "【Ciudad】",
-      "postalCode": "【CP】",
+      "streetAddress": "Calle Principal, 123",
+      "addressLocality": "Madrid",
+      "postalCode": "28001",
       "addressCountry": "ES"
     },
-    "openingHours": ["Mo-Fr 10:00-20:00", "Sa 10:00-14:00"],
-    "sameAs": [
-      "https://www.instagram.com/【usuario】",
-      "https://www.facebook.com/【usuario】"
-    ]
+    "openingHours": ["Mo-Fr 10:00-20:00", "Sa 10:00-14:00"]
   }
   </script>
+  
   <style>
-    :root { --bg: #0b0c10; --fg: #e6edf3; --muted:#9aa4ad; --accent:#6ee7b7; --card:#111317; --border:#22252b; }
-    * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; color:var(--fg); background: linear-gradient(180deg,#0b0c10 0%,#0f1115 100%); }
+    :root { 
+      --bg: #0b0c10; 
+      --fg: #e6edf3; 
+      --muted:#9aa4ad; 
+      --accent:#6ee7b7; 
+      --card:#111317; 
+      --border:#22252b;
+      --floral-pink: #ffb6d9;
+      --floral-green: #86efac;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { 
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif;
+      color: var(--fg); 
+      background: linear-gradient(180deg, #0b0c10 0%, #0f1115 100%); 
+      line-height: 1.6;
+    }
     a { color: inherit; text-decoration: none; }
-    .container { max-width:1100px; margin:0 auto; padding: 24px; }
-    header { position: sticky; top:0; backdrop-filter: blur(8px); background: rgba(11,12,16,0.6); border-bottom:1px solid var(--border); z-index: 10; }
-    nav { display:flex; align-items:center; justify-content: space-between; gap:16px; }
-    .brand { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.2px; }
-    .brand img { width:36px; height:36px; border-radius:10px; border:1px solid var(--border); }
-    .navlinks a { padding:10px 12px; border-radius:10px; }
-    .navlinks a:hover { background: var(--card); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    
+    /* Header */
+    header { 
+      position: sticky; 
+      top: 0; 
+      backdrop-filter: blur(12px); 
+      background: rgba(11,12,16,0.8); 
+      border-bottom: 1px solid var(--border); 
+      z-index: 100; 
+    }
+    nav { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 16px; 
+      padding: 12px 0;
+    }
+    .brand { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+      font-weight: 700; 
+      font-size: 18px;
+      letter-spacing: 0.3px; 
+    }
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--floral-pink), var(--floral-green));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .navlinks { display: flex; gap: 8px; }
+    .navlinks a { 
+      padding: 10px 14px; 
+      border-radius: 10px; 
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+    .navlinks a:hover { 
+      background: var(--card); 
+      color: var(--floral-green);
+    }
 
-    .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding: 48px 0 16px; }
-    .hero .title { font-size: clamp(28px, 5vw, 48px); line-height:1.1; font-weight:800; }
-    .hero p { color: var(--muted); font-size: 18px; }
-    .cta { display:flex; gap:12px; margin-top: 16px; }
-    .btn { padding:12px 16px; border-radius:12px; border:1px solid var(--border); background: var(--card); cursor:pointer; font-weight:600; }
-    .btn.primary { background:linear-gradient(90deg,#22c55e, #06b6d4); color:#0a0a0a; border:none; }
+    /* Hero */
+    .hero { 
+      display: grid; 
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap: 40px; 
+      align-items: center; 
+      padding: 64px 0 40px; 
+    }
+    .hero .title { 
+      font-size: clamp(32px, 5vw, 52px); 
+      line-height: 1.1; 
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff, var(--floral-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p { 
+      color: var(--muted); 
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { 
+      padding: 14px 24px; 
+      border-radius: 12px; 
+      border: 1px solid var(--border); 
+      background: var(--card); 
+      cursor: pointer; 
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+      font-size: 15px;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { 
+      background: linear-gradient(135deg, var(--floral-pink), var(--floral-green)); 
+      color: #0a0a0a; 
+      border: none;
+      box-shadow: 0 4px 12px rgba(255, 182, 217, 0.3);
+    }
+    .btn.primary:hover { box-shadow: 0 6px 20px rgba(255, 182, 217, 0.5); }
 
-    .badgebar { display:flex; gap:8px; flex-wrap:wrap; margin-top:20px; }
-    .badge { font-size:12px; color:#0a0a0a; background:#c4fce1; padding:6px 10px; border-radius:999px; }
+    .badgebar { 
+      display: flex; 
+      gap: 10px; 
+      flex-wrap: wrap; 
+      margin-top: 24px; 
+    }
+    .badge { 
+      font-size: 13px; 
+      color: #0a0a0a; 
+      background: linear-gradient(135deg, #fde8f3, var(--floral-green)); 
+      padding: 8px 14px; 
+      border-radius: 999px;
+      font-weight: 600;
+    }
 
-    .section { padding: 56px 0; }
-    h2.section-title { font-size: clamp(22px, 3.2vw, 34px); margin: 0 0 12px; }
-    p.section-sub { color:var(--muted); margin: 0 0 24px; }
+    .hero-image {
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      width: 100%;
+      height: auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
 
-    .grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; }
-    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-    .card img { width:100%; height:220px; object-fit: cover; display:block; }
-    .card .info { padding:14px; display:grid; gap:6px; }
-    .price { font-weight:700; }
-    .tags { display:flex; gap:6px; flex-wrap:wrap; }
-    .tag { font-size:12px; color:var(--muted); background:#151922; padding:4px 8px; border-radius:999px; border:1px solid var(--border); }
+    /* Sections */
+    .section { padding: 72px 0; }
+    h2.section-title { 
+      font-size: clamp(28px, 4vw, 42px); 
+      margin: 0 0 12px;
+      font-weight: 800;
+    }
+    p.section-sub { 
+      color: var(--muted); 
+      margin: 0 0 40px;
+      font-size: 17px;
+    }
 
-    .about { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; }
-    .about .panel { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; }
+    /* Grid de productos */
+    .grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+      gap: 24px; 
+    }
+    .card { 
+      background: var(--card); 
+      border: 1px solid var(--border); 
+      border-radius: 16px; 
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .card:hover { 
+      transform: translateY(-4px);
+      border-color: var(--floral-pink);
+      box-shadow: 0 8px 24px rgba(255, 182, 217, 0.2);
+    }
+    .card img { 
+      width: 100%; 
+      height: 280px; 
+      object-fit: cover; 
+      display: block;
+      background: #1a1d24;
+    }
+    .card .info { 
+      padding: 18px; 
+      display: grid; 
+      gap: 10px; 
+    }
+    .card h3 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .price { 
+      font-weight: 700;
+      color: var(--floral-green);
+      font-size: 16px;
+    }
+    .tags { 
+      display: flex; 
+      gap: 8px; 
+      flex-wrap: wrap; 
+    }
+    .tag { 
+      font-size: 12px; 
+      color: var(--muted); 
+      background: #151922; 
+      padding: 5px 10px; 
+      border-radius: 999px; 
+      border: 1px solid var(--border);
+    }
 
-    .contact { display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:start; }
-    form { display:grid; gap:10px; }
-    input, textarea { width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); background:#0f131a; color:var(--fg); }
-    textarea { min-height:120px; resize:vertical; }
-    .notice { font-size:12px; color:var(--muted); }
+    /* About */
+    .about { 
+      display: grid; 
+      grid-template-columns: 1.2fr 0.8fr; 
+      gap: 24px; 
+      align-items: start; 
+    }
+    .panel { 
+      background: var(--card); 
+      border: 1px solid var(--border); 
+      border-radius: 16px; 
+      padding: 28px;
+    }
+    .panel h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .panel ul {
+      list-style: none;
+      padding: 0;
+    }
+    .panel li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel li:last-child { border: none; }
 
-    footer { border-top:1px solid var(--border); padding:24px 0; color:var(--muted); }
+    /* Contact */
+    .contact { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 24px; 
+      align-items: start; 
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    form { display: grid; gap: 12px; }
+    input, textarea { 
+      width: 100%; 
+      padding: 14px; 
+      border-radius: 12px; 
+      border: 1px solid var(--border); 
+      background: #0f131a; 
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 15px;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--floral-pink);
+    }
+    textarea { 
+      min-height: 140px; 
+      resize: vertical; 
+    }
+    .notice { 
+      font-size: 13px; 
+      color: var(--muted);
+      margin-top: 8px;
+    }
 
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    /* Footer */
+    footer { 
+      border-top: 1px solid var(--border); 
+      padding: 32px 0; 
+      color: var(--muted);
+      margin-top: 40px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .footer-content a:hover {
+      color: var(--floral-green);
+    }
 
+    .sr-only { 
+      position: absolute; 
+      width: 1px; 
+      height: 1px; 
+      padding: 0; 
+      margin: -1px; 
+      overflow: hidden; 
+      clip: rect(0,0,0,0); 
+      white-space: nowrap; 
+      border: 0; 
+    }
+
+    /* Loading placeholder */
+    .loading {
+      background: linear-gradient(90deg, #1a1d24 25%, #22252b 50%, #1a1d24 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s ease-in-out infinite;
+    }
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Responsive */
     @media (max-width: 920px) {
       .hero { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr 1fr; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
       .about, .contact { grid-template-columns: 1fr; }
     }
     @media (max-width: 580px) {
+      .navlinks a { padding: 8px 10px; font-size: 14px; }
       .grid { grid-template-columns: 1fr; }
+      .hero { padding: 40px 0 24px; }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container">
       <nav aria-label="Principal">
         <a class="brand" href="#inicio">
-          <img src="/logo.png" alt="Logo de 【NOMBRE DEL NEGOCIO】" />
-          <span>【NOMBRE DEL NEGOCIO】</span>
+          <div class="brand-icon">🌸</div>
+          <span>Florería Artesanal</span>
         </a>
         <div class="navlinks" role="navigation">
           <a href="#catalogo">Catálogo</a>
@@ -117,93 +376,87 @@
   <main id="inicio" class="container">
     <section class="hero" aria-labelledby="hero-title">
       <div>
-        <h1 id="hero-title" class="title">Productos hechos con cariño para tu día a día</h1>
-        <p>【Describe en una frase lo que vendéis: artesanía, repostería, moda, etc.】 Envíos a toda España y recogida local.</p>
+        <h1 id="hero-title" class="title">Ramos florales hechos con amor</h1>
+        <p>Creaciones únicas y personalizadas para cada ocasión especial. Flores frescas, diseños únicos y entrega en 24-48h.</p>
         <div class="cta">
           <a class="btn primary" href="#catalogo">Ver catálogo</a>
-          <a class="btn" href="#contacto">Pedir por WhatsApp</a>
+          <a class="btn" href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener">Pedir por WhatsApp</a>
         </div>
         <div class="badgebar" aria-hidden="true">
-          <span class="badge">Pago seguro</span>
-          <span class="badge">Atención cercana</span>
-          <span class="badge">Hecho en 【Ciudad】</span>
+          <span class="badge">🚚 Envío 24-48h</span>
+          <span class="badge">✨ Hecho a mano</span>
+          <span class="badge">💐 Flores frescas</span>
         </div>
       </div>
-      <picture>
-        <source srcset="/hero.webp" type="image/webp" />
-        <img src="/hero.jpg" alt="Foto representativa de los productos" loading="lazy" width="800" height="600" style="border-radius:16px; border:1px solid var(--border);" />
-      </picture>
+      <div>
+        <img class="hero-image" src="images/WhatsApp Image 2025-11-11 at 10.28.17.jpeg" alt="Ramo floral principal" loading="eager" width="600" height="600" />
+      </div>
     </section>
 
     <section id="catalogo" class="section" aria-labelledby="catalogo-title">
-      <h2 id="catalogo-title" class="section-title">Catálogo</h2>
-      <p class="section-sub">Algunas de nuestras piezas favoritas. Puedes escribirnos para encargos personalizados.</p>
+      <h2 id="catalogo-title" class="section-title">Nuestro Catálogo</h2>
+      <p class="section-sub">Cada ramo es único. Puedes personalizarlo con tus colores y flores favoritas.</p>
       <div class="grid" id="grid-productos">
-        <!-- Repite estas tarjetas con tus fotos (colócalas en /public o junto al index.html) -->
-        <article class="card">
-          <img src="/productos/1.jpg" alt="【Nombre del producto 1】" loading="lazy" width="600" height="400" />
-          <div class="info">
-            <h3>【Nombre del producto 1】</h3>
-            <div class="price">【12,00 €】</div>
-            <div class="tags">
-              <span class="tag">【Etiqueta】</span>
-              <span class="tag">【Hecho a mano】</span>
-            </div>
-          </div>
-        </article>
-        <article class="card">
-          <img src="/productos/2.jpg" alt="【Nombre del producto 2】" loading="lazy" width="600" height="400" />
-          <div class="info">
-            <h3>【Nombre del producto 2】</h3>
-            <div class="price">【18,00 €】</div>
-            <div class="tags">
-              <span class="tag">【Etiqueta】</span>
-              <span class="tag">【Eco】</span>
-            </div>
-          </div>
-        </article>
-        <article class="card">
-          <img src="/productos/3.jpg" alt="【Nombre del producto 3】" loading="lazy" width="600" height="400" />
-          <div class="info">
-            <h3>【Nombre del producto 3】</h3>
-            <div class="price">【24,00 €】</div>
-            <div class="tags">
-              <span class="tag">【Etiqueta】</span>
-              <span class="tag">【Nuevo】</span>
-            </div>
-          </div>
-        </article>
+        <!-- Las tarjetas se generarán aquí con JavaScript -->
       </div>
     </section>
 
     <section id="sobre" class="section about" aria-labelledby="sobre-title">
       <div class="panel">
         <h2 id="sobre-title" class="section-title">Sobre nosotros</h2>
-        <p>【Cuenta la historia del negocio en 3-5 frases: quién es tu madre, desde cuándo, por qué empezó, qué os diferencia.】</p>
+        <p style="margin-bottom: 16px;">
+          Con más de [X] años de experiencia, creamos ramos florales artesanales que transmiten emociones. 
+          Cada pieza es única, trabajada con mimo y las mejores flores frescas del mercado.
+        </p>
+        <p style="margin-bottom: 20px;">
+          Nos especializamos en bodas, eventos y regalos personalizados. Tu satisfacción es nuestra prioridad.
+        </p>
+        <h3 style="font-size: 18px; margin-bottom: 12px;">Información práctica</h3>
         <ul>
-          <li>Envíos: 【24-72h】</li>
-          <li>Pagos: Bizum, transferencia, efectivo</li>
-          <li>Devoluciones: 【X días】</li>
+          <li>📦 <strong>Envíos:</strong> 24-48h a toda España</li>
+          <li>💳 <strong>Pagos:</strong> Bizum, transferencia, efectivo</li>
+          <li>🔄 <strong>Devoluciones:</strong> 7 días (flores frescas)</li>
+          <li>🎨 <strong>Personalización:</strong> Gratuita</li>
         </ul>
       </div>
       <div class="panel">
-        <h3>Opiniones</h3>
-        <p class="notice">Añade capturas breves de reseñas o testimonios de clientes.</p>
+        <h3>💬 Opiniones</h3>
+        <p style="color: var(--muted); margin-bottom: 16px;">Lo que dicen nuestros clientes:</p>
+        <div style="display: grid; gap: 16px;">
+          <div style="padding: 12px; background: #0f131a; border-radius: 8px; border-left: 3px solid var(--floral-pink);">
+            <p style="font-size: 14px; margin-bottom: 8px;">"Ramos preciosos y entrega rápida. ¡Muy recomendable!"</p>
+            <p style="font-size: 12px; color: var(--muted);">⭐⭐⭐⭐⭐ - María G.</p>
+          </div>
+          <div style="padding: 12px; background: #0f131a; border-radius: 8px; border-left: 3px solid var(--floral-green);">
+            <p style="font-size: 14px; margin-bottom: 8px;">"Atención personalizada y flores frescas. Perfecto para mi boda."</p>
+            <p style="font-size: 12px; color: var(--muted);">⭐⭐⭐⭐⭐ - Laura P.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="contacto" class="section contact" aria-labelledby="contacto-title">
       <div>
         <h2 id="contacto-title" class="section-title">Contacto</h2>
-        <p class="section-sub">Escríbenos por WhatsApp, email o el formulario y te atendemos enseguida.</p>
-        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
-          <a class="btn primary" href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="btn" href="mailto:【correo@ejemplo.com】">correo@ejemplo.com</a>
-          <a class="btn" href="tel:+34600000000">+34 600 000 000</a>
+        <p class="section-sub">Escríbenos y te respondemos enseguida. ¡Hagamos realidad tu ramo ideal!</p>
+        
+        <div class="contact-buttons">
+          <a class="btn primary" href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener">
+            💬 WhatsApp
+          </a>
+          <a class="btn" href="mailto:info@ejemplo.com">
+            ✉️ Email
+          </a>
+          <a class="btn" href="tel:+34600000000">
+            📞 Llamar
+          </a>
         </div>
+        
         <form id="form-contacto" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="contact" />
-          <p class="sr-only"><label>Si eres humano, deja este campo vacío<input name="bot-field" /></label></p>
+          <p class="sr-only">
+            <label>Si eres humano, deja este campo vacío<input name="bot-field" /></label>
+          </p>
           <label>
             <span class="sr-only">Nombre</span>
             <input name="nombre" placeholder="Tu nombre" required />
@@ -214,28 +467,44 @@
           </label>
           <label>
             <span class="sr-only">Mensaje</span>
-            <textarea name="mensaje" placeholder="¿Qué te gustaría pedir?" required></textarea>
+            <textarea name="mensaje" placeholder="¿Qué te gustaría encargar? (Ocasión, colores, tamaño...)" required></textarea>
           </label>
-          <button class="btn primary" type="submit">Enviar</button>
-          <p class="notice">Al enviar aceptas nuestra política de privacidad.</p>
+          <button class="btn primary" type="submit">Enviar mensaje</button>
+          <p class="notice">Al enviar aceptas nuestra política de privacidad. Responderemos en menos de 24h.</p>
         </form>
       </div>
+      
       <div>
-        <div class="panel" style="height:100%;">
-          <h3>Ubicación</h3>
-          <p>【Calle, número – Ciudad】</p>
-          <iframe title="Mapa" style="width:100%; height:300px; border:0; border-radius:12px;" loading="lazy" allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?pb=【PEGA_AQUI_EL_EMBED_DE_MAPS】"></iframe>
+        <div class="panel" style="height: 100%;">
+          <h3>📍 Ubicación</h3>
+          <p style="margin-bottom: 16px; color: var(--muted);">
+            <strong>Calle Principal, 123</strong><br>
+            28001 Madrid, España
+          </p>
+          <p style="margin-bottom: 16px; font-size: 14px;">
+            <strong>Horario:</strong><br>
+            Lun-Vie: 10:00 - 20:00<br>
+            Sábado: 10:00 - 14:00<br>
+            Domingo: Cerrado
+          </p>
+          <div style="width: 100%; height: 250px; background: #1a1d24; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--muted);">
+            [Aquí irá tu mapa de Google Maps]
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container" style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-      <span>© <span id="year"></span> 【NOMBRE DEL NEGOCIO】</span>
-      <span><a href="#">Aviso legal</a> · <a href="#">Privacidad</a></span>
+    <div class="container">
+      <div class="footer-content">
+        <span>© <span id="year"></span> Florería Artesanal · Hecho con 💐</span>
+        <div style="display: flex; gap: 16px;">
+          <a href="#">Aviso legal</a>
+          <a href="#">Privacidad</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -243,15 +512,102 @@
     // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mejora simple: si hay parámetros ?p= en la URL, filtra productos por etiqueta
-    const params = new URLSearchParams(location.search);
-    const filtro = params.get('p');
-    if (filtro) {
-      document.querySelectorAll('.card').forEach(c => {
-        const etiquetas = Array.from(c.querySelectorAll('.tag')).map(t => t.textContent.toLowerCase());
-        if (!etiquetas.some(e => e.includes(filtro.toLowerCase()))) c.style.display = 'none';
+    // Lista de todas las imágenes
+    const imagenes = [
+      "WhatsApp Image 2025-11-11 at 10.28.17.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.17 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.17 (2).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.17 (3).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.17 (4).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.17 (5).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.17 (6).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.17 (7).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.18.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.18 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.21.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.21 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.21 (2).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.21 (3).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.21 (4).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.44.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.44 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.44 (2).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.44 (3).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.45.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.45 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.45 (2).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.45 (3).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.45 (4).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.46.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.46 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.46 (2).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.47.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.47 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.47 (2).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.47 (3).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.47 (4).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.48.jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.48 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.48 (2).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.48 (3).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.48 (4).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.49 (1).jpeg",
+      "WhatsApp Image 2025-11-11 at 10.28.49 (2).jpeg"
+    ];
+
+    // Títulos variados para los ramos
+    const titulos = [
+      "Ramo Rosa Elegante",
+      "Ramo Primaveral",
+      "Ramo Clásico Blanco",
+      "Ramo Silvestre",
+      "Ramo Romántico",
+      "Ramo de Novia",
+      "Ramo Tropical",
+      "Ramo Pastel",
+      "Ramo Vibrante",
+      "Ramo Minimalista"
+    ];
+
+    // Generar las tarjetas
+    const grid = document.getElementById("grid-productos");
+    
+    imagenes.forEach((img, index) => {
+      const card = document.createElement("article");
+      card.className = "card";
+      
+      // Asignar título variado
+      const titulo = titulos[index % titulos.length];
+      
+      card.innerHTML = `
+        <img src="images/${img}" alt="${titulo}" loading="lazy" class="loading">
+        <div class="info">
+          <h3>${titulo}</h3>
+          <div class="price">Desde 25€</div>
+          <div class="tags">
+            <span class="tag">Hecho a mano</span>
+            <span class="tag">Personalizable</span>
+          </div>
+        </div>
+      `;
+      
+      // Remover clase loading cuando cargue la imagen
+      const imgElement = card.querySelector('img');
+      imgElement.onload = () => imgElement.classList.remove('loading');
+      
+      grid.appendChild(card);
+    });
+
+    // Smooth scroll para los enlaces de navegación
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
-    }
+    });
   </script>
 </body>
 </html>
